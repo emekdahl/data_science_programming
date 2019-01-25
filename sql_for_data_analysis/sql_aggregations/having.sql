@@ -32,7 +32,12 @@ HAVING SUM(o.total_amt_usd) > 30000
 ORDER BY order_amt DESC;
 
 -- Which accounts spent less than 1,000 usd total across all orders?
-
+SELECT a.id, a.name, SUM(o.total_amt_usd) order_amt
+FROM accounts a
+INNER JOIN orders o on a.id = o.account_id
+GROUP BY a.id, a.name
+HAVING SUM(o.total_amt_usd) < 1000
+ORDER BY order_amt DESC;
 
 -- Which account has spent the most with us?
 
