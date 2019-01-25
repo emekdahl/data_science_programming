@@ -76,3 +76,9 @@ ORDER BY fb_count DESC
 LIMIT 1;
 
 -- Which channel was most frequently used by most accounts?
+SELECT w.channel, COUNT(a.id) account_count
+FROM accounts a
+INNER JOIN web_events w on a.id = w.account_id
+GROUP BY w.channel
+ORDER BY account_count DESC
+LIMIT 1;
