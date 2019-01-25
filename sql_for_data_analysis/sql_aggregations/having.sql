@@ -15,7 +15,13 @@ HAVING COUNT(o.id) > 20
 ORDER BY order_count;
 
 -- Which account has the most orders?
-
+SELECT a.id, a.name, COUNT(o.id) order_count
+FROM accounts a
+INNER JOIN orders o on a.id = o.account_id
+GROUP BY a.id, a.name
+HAVING COUNT(o.id) > 20
+ORDER BY order_count DESC
+LIMIT 1;
 
 -- Which accounts spent more than 30,000 usd total across all orders?
 
