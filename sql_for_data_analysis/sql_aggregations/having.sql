@@ -67,6 +67,12 @@ HAVING COUNT(w.channel) > 6
 ORDER BY fb_count DESC;
 
 -- Which account used facebook most as a channel? 
-
+SELECT a.id, a.name, COUNT(w.channel) fb_count
+FROM accounts a
+INNER JOIN web_events w on a.id = w.account_id
+WHERE w.channel = 'facebook'
+GROUP BY a.id, a.name, w.channel
+ORDER BY fb_count DESC
+LIMIT 1;
 
 -- Which channel was most frequently used by most accounts?
