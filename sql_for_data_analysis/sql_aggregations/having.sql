@@ -58,7 +58,13 @@ ORDER BY order_amt
 LIMIT 1;
 
 -- Which accounts used facebook as a channel to contact customers more than 6 times?
-
+SELECT a.id, a.name, COUNT(w.channel) fb_count
+FROM accounts a
+INNER JOIN web_events w on a.id = w.account_id
+WHERE w.channel = 'facebook'
+GROUP BY a.id, a.name
+HAVING COUNT(w.channel) > 6
+ORDER BY fb_count DESC;
 
 -- Which account used facebook most as a channel? 
 
