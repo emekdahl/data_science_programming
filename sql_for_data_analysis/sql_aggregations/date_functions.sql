@@ -23,3 +23,9 @@ GROUP by 1
 ORDER by 2 DESC;
 
 -- In which month of which year did Walmart spend the most on gloss paper in terms of dollars?
+SELECT DATE_PART('month', occurred_at) as month, SUM(gloss_amt_usd) as total_gloss_sales
+FROM orders o
+JOIN accounts a on o.account_id = a.id
+WHERE a.name like '%Walmart%'
+GROUP by month
+ORDER by total_gloss_sales DESC;
