@@ -5,8 +5,9 @@ GROUP by 1
 ORDER by 2 DESC;
 
 -- Which month did Parch & Posey have the greatest sales in terms of total dollars? Are all months evenly represented by the dataset?
-SELECT DATE_PART('month', occurred_at) as month, SUM(total) as total_sales, COUNT(occurred_at) as date_count
+SELECT DATE_PART('month', occurred_at) as month, SUM(total_amt_usd) as total_sales
 FROM orders
+WHERE occurred_at BETWEEN '2014-01-01' AND '2017-01-01'
 GROUP by 1
 ORDER by 2 DESC;
 
