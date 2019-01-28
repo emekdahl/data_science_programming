@@ -30,4 +30,5 @@ FROM orders o
 JOIN accounts a on o.account_id = a.id
 WHERE a.name like '%Walmart%'
 GROUP by month
-ORDER by total_gloss_sales DESC;
+ORDER by total_gloss_sales DESC
+LIMIT 1;
