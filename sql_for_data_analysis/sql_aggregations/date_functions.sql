@@ -11,7 +11,10 @@ GROUP by 1
 ORDER by 2 DESC;
 
 -- Which year did Parch & Posey have the greatest sales in terms of total number of orders? Are all years evenly represented by the dataset?
-
+SELECT DATE_PART('year', occurred_at) as year, COUNT(*) as total_orders
+FROM orders
+GROUP by 1
+ORDER by 2 DESC;
 
 -- Which month did Parch & Posey have the greatest sales in terms of total number of orders? Are all months evenly represented by the dataset?
 
