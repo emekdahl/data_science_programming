@@ -1,5 +1,5 @@
 -- Find the sales in terms of total dollars for all orders in each year, ordered from greatest to least. Do you notice any trends in the yearly sales totals?
-SELECT DATE_PART('year', occurred_at) as year, SUM(total) as total_sales
+SELECT DATE_PART('year', occurred_at) as year, SUM(total_amt_usd) as total_sales
 FROM orders
 GROUP by 1
 ORDER by 2 DESC;
