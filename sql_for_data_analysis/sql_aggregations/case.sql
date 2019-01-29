@@ -6,6 +6,14 @@ CASE
 END 
 FROM orders o;
 -- Write a query to display the number of orders in each of three categories, based on the 'total' amount of each order. The three categories are: 'At Least 2000', 'Between 1000 and 2000' and 'Less than 1000'.
+SELECT COUNT(o.id) as order_count,
+CASE 
+	WHEN o.id > 2000 THEN 'Over 2k' 
+	WHEN o.id <= 2000 AND o.id >= 1000  THEN 'Between 1k and 2k'
+    WHEN o.id < 1000 THEN 'Under 1K'
+END 
+FROM orders o
+GROUP by 2;
 -- We would like to understand 3 different levels of customers based on the amount associated with their purchases. The top level includes anyone with a Lifetime Value (total sales of all orders) greater than 200,000 usd. The second level is between 200,000 and 100,000 usd. The lowest level is anyone under 100,000 usd. Provide a table that includes the level associated with each account. You should provide the account name, the total sales of all orders for the customer, and the level. Order with the top spending customers listed first.
 
 
