@@ -8,9 +8,9 @@ FROM orders o;
 -- Write a query to display the number of orders in each of three categories, based on the 'total' amount of each order. The three categories are: 'At Least 2000', 'Between 1000 and 2000' and 'Less than 1000'.
 SELECT COUNT(o.id) as order_count,
 CASE 
-	WHEN o.id > 2000 THEN 'Over 2k' 
-	WHEN o.id <= 2000 AND o.id >= 1000  THEN 'Between 1k and 2k'
-    WHEN o.id < 1000 THEN 'Under 1K'
+	WHEN o.total > 2000 THEN 'Over 2k' 
+	WHEN o.total <= 2000 AND o.id >= 1000  THEN 'Between 1k and 2k'
+    WHEN o.total < 1000 THEN 'Under 1K'
 END 
 FROM orders o
 GROUP by 2;
