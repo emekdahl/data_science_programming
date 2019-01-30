@@ -40,9 +40,9 @@ GROUP by 1
 ORDER BY total_sales DESC;
 
 -- We would like to identify top performing sales reps, which are sales reps associated with more than 200 orders. Create a table with the sales rep name, the total number of orders, and a column with top or not depending on if they have more than 200 orders. Place the top sales people first in your final table.
-SELECT sr.name, SUM(o.id) as total_orders,
+SELECT sr.name, COUNT(*) as total_orders,
 CASE 
-	WHEN SUM(o.id) > 200 THEN 'TOP' 
+	WHEN COUNT(*)  > 200 THEN 'TOP' 
     ELSE 'NOT'
 END as top_performer
 FROM orders o
