@@ -12,7 +12,11 @@ SELECT AVG(standard_qty) as standard_avg, AVG(gloss_qty) as gloss_avg, AVG(poste
         SELECT DATE_TRUNC('month', MIN(occurred_at)) FROM orders);
 
                                                                                                        
-
+-- total amt usd all orders in first month
+SELECT SUM(total_amt_usd)
+FROM orders
+WHERE DATE_TRUNC('month', occurred_at) = 
+      (SELECT DATE_TRUNC('month', MIN(occurred_at)) FROM orders);
 
                                                                                                        
 
