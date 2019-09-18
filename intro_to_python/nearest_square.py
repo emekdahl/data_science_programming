@@ -1,8 +1,9 @@
 limit = 40
-nearest_square = 0
+num = 0
 
 # write your while loop here
-while (nearest_square+1)**2 < limit:
-    nearest_square+=1
+while (num+1)**2 < limit:
+    num+=1
+    nearest_square = num**2
 
 print(nearest_square)
