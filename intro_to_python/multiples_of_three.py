@@ -1,2 +1,3 @@
-multiples_3 = [i*3 for i in range(20)]
+multiples_3 = [x * 3 for x in range(1, 21)]
+
 print(multiples_3)
