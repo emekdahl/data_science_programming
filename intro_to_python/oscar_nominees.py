@@ -30,3 +30,13 @@ for year, list_dir in winners.items():
 
 
 print("win_count_dict = {}".format(win_count_dict))
+
+win_count_dict = {}
+for year, winnerlist in winners.items():
+    for winner in winnerlist:
+        win_count_dict[winner] = win_count_dict.get(winner, 0) + 1
+
+   
+highest_count = max(win_count_dict.values())
+
+most_win_director = [key for key, value in win_count_dict.items() if value == highest_count]
